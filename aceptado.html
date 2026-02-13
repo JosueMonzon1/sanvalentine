@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahora somos nosotros 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#1a0026,#3d003f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    color:white;
+}
+
+.container{
+    padding:30px;
+    max-width:400px;
+    animation:fadeIn 2s ease;
+}
+
+h1{
+    font-size:28px;
+    color:#ff9acb;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.firma{
+    margin-top:15px;
+    font-size:15px;
+    opacity:0.9;
+}
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    animation:float 6s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);opacity:1;}
+    to{transform:translateY(-10vh);opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Sabía que dirías que sí 💖</h1>
+
+    <p>
+        Desde hoy oficialmente  
+        este 14 de febrero tiene nombre…  
+        y se llama <strong>Joely & Josue</strong>.
+        <br><br>
+        Prometo hacerte sonreír,  
+        acompañarte y construir recuerdos hermosos contigo.
+    </p>
+
+    <div class="firma">
+        Con todo mi cariño,<br>
+        <strong>Josue Marcos 💗</strong>
+    </div>
+</div>
+
+<script>
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML=Math.random()>0.5?"💗":"💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},500);
+</script>
+
+</body>
+</html>
