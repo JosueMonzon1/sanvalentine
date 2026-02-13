@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joely 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: radial-gradient(circle at top, #2b193d, #120018);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:15px;
+    color:#fff;
+}
+
+.reel{
+    width:100%;
+    max-width:390px;
+    aspect-ratio:9/16;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    backdrop-filter: blur(15px);
+    border-radius:34px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
+    padding:28px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:fadeIn 2.5s ease;
+    position:relative;
+}
+
+.foto{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:url('https://i.imgur.com/mNInd6c.jpeg') center/cover no-repeat;
+    border:4px solid rgba(255,255,255,0.6);
+    box-shadow:0 0 35px rgba(255,182,193,0.7);
+    margin-bottom:18px;
+}
+
+.corazon{
+    font-size:48px;
+    animation:latido 1.2s infinite;
+    margin-bottom:10px;
+}
+
+.nombre{
+    font-size:28px;
+    font-weight:600;
+    color:#ffb3d9;
+    margin-bottom:12px;
+}
+
+.mensaje{
+    font-size:15px;
+    line-height:1.7;
+    color:#f5e9f2;
+    margin-bottom:22px;
+}
+
+.botones{
+    display:flex;
+    gap:15px;
+    position:relative;
+}
+
+button{
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-si{
+    background: linear-gradient(135deg,#ff5da2,#ff9acb);
+    color:#fff;
+    box-shadow:0 10px 30px rgba(255,93,162,0.6);
+}
+
+.btn-si:hover{
+    transform:scale(1.1);
+}
+
+.btn-no{
+    background:#eee;
+    color:#333;
+    position:relative;
+}
+
+.final{
+    display:none;
+    margin-top:25px;
+    font-size:16px;
+    line-height:1.6;
+    color:#ffb3d9;
+}
+
+.firma{
+    margin-top:12px;
+    font-size:15px;
+    opacity:0.9;
+}
+
+/* corazones */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:float 6s linear infinite;
+    opacity:0.8;
+    pointer-events:none;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);opacity:1;}
+    to{transform:translateY(-10vh);opacity:0;}
+}
+
+@keyframes latido{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/13/audio_8f3b1dcf7a.mp3" type="audio/mpeg">
+</audio>
+
+<div class="reel">
+    <div class="foto"></div>
+
+    <div class="corazon">💗</div>
+
+    <div class="nombre">Joely</div>
+
+    <div class="mensaje">
+        No llegaste por casualidad…  
+        llegaste para quedarte.
+        <br><br>
+        Me encanta tu ternura,  
+        me enamora tu intensidad  
+        y me ilusiona un futuro contigo.
+        <br><br>
+        Este 14 de febrero…
+        <br>
+        <strong>¿Quieres ser mi San Valentín? 💕</strong>
+    </div>
+
+    <div class="botones">
+        <button class="btn-si" onclick="aceptar()">Sí 💖</button>
+        <button class="btn-no" id="no">No 🙈</button>
+    </div>
+
+    <div class="final" id="final">
+        Prometo cuidarte, respetarte  
+        y elegirte todos los días.
+        <br><br>
+        Gracias por decir que sí ✨
+        <div class="firma">
+            Con amor,<br>
+            <strong>Josue Marcos 💗</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+const btnNo = document.getElementById("no");
+
+btnNo.addEventListener("mouseover",()=>{
+    btnNo.style.transform =
+        `translate(${Math.random()*140-70}px, ${Math.random()*140-70}px)`;
+});
+
+function aceptar(){
+    document.getElementById("final").style.display="block";
+    for(let i=0;i<30;i++){
+        const h=document.createElement("div");
+        h.className="heart";
+        h.innerHTML=Math.random()>0.5?"💗":"💖";
+        h.style.left=Math.random()*100+"vw";
+        h.style.animationDuration=(Math.random()*2+3)+"s";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),6000);
+    }
+}
+
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML=Math.random()>0.5?"💗":"💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+4)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},600);
+</script>
+
+</body>
+</html>
