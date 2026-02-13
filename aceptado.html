@@ -22,10 +22,10 @@ body{
     text-align:center;
     overflow:hidden;
     color:white;
+    padding:20px;
 }
 
 .container{
-    padding:30px;
     max-width:400px;
     animation:fadeIn 2s ease;
 }
@@ -42,6 +42,17 @@ p{
     margin-bottom:20px;
 }
 
+/* FOTO CUADRADA */
+.foto-final{
+    width:200px;
+    height:200px;
+    margin:20px auto;
+    border-radius:20px;
+    background:url('https://i.imgur.com/mNInd6c.jpeg') center/cover no-repeat;
+    box-shadow:0 0 40px rgba(255,154,203,0.8);
+    animation:zoomIn 1.5s ease;
+}
+
 .firma{
     margin-top:15px;
     font-size:15px;
@@ -53,6 +64,7 @@ p{
     font-size:22px;
     animation:float 6s linear infinite;
     opacity:0.8;
+    pointer-events:none;
 }
 
 @keyframes float{
@@ -63,6 +75,22 @@ p{
 @keyframes fadeIn{
     from{opacity:0;transform:translateY(30px);}
     to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+/* RESPONSIVE */
+@media (max-width:480px){
+    h1{
+        font-size:22px;
+    }
+    .foto-final{
+        width:170px;
+        height:170px;
+    }
 }
 </style>
 </head>
@@ -80,6 +108,9 @@ p{
         Prometo hacerte sonreír,  
         acompañarte y construir recuerdos hermosos contigo.
     </p>
+
+    <!-- FOTO CUADRADA -->
+    <div class="foto-final"></div>
 
     <div class="firma">
         Con todo mi cariño,<br>
