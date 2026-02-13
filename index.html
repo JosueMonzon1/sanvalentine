@@ -13,6 +13,75 @@
     font-family:'Poppins','Segoe UI',sans-serif;
 }
 
+    .final {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff4e8a, #ff9acb);
+    color: white;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.final h1 {
+    font-size: 3rem;
+    animation: pop 0.8s ease;
+}
+
+.final h2 {
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 24px;
+    animation: float linear forwards;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes pop {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+    
+
+    <script>
+function decirSi() {
+    document.body.innerHTML = `
+        <div class="final">
+            <h1>Sabía que dirías que sí 💘</h1>
+            <h2>Con cariño, Josue Marcos</h2>
+        </div>
+    `;
+
+    for (let i = 0; i < 50; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+
 body{
     min-height:100vh;
     background: radial-gradient(circle at top, #2b193d, #120018);
@@ -220,3 +289,4 @@ setInterval(()=>{
 
 </body>
 </html>
+
